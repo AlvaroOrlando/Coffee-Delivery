@@ -23,6 +23,4 @@ export const defaultTheme = {
     "--130":"130%",
     "--160": "160%",
     
-    "--roboto": "Roboto, sans-serif",
-    "--ballo2": "Baloo 2, cursive;"
 } as const

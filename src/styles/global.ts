@@ -19,6 +19,13 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0 auto;
     }
 
+    button{
+        outline:0;
+        border:none;
+        background-color: transparent;
+        line-height: 0px;
+    }
+
     
     
 `

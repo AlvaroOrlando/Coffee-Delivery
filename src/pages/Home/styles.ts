@@ -5,10 +5,16 @@ export const Main = styled.main`
     width: 100%;
 `
 
-export const Header = styled.header`
-    width: 100%;
-    height: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+export const Title = styled.div`
+    margin-top:2.5rem;
+    margin-bottom:2.5rem;
+
+    & h1{
+        color: ${props => props.theme['--base-subtitle']};
+        font-family: 'Baloo 2', cursive;
+        font-weight: 800;
+        font-size: 2rem;
+        line-height: ${props => props.theme['--130']};;
+    }
 `
+
