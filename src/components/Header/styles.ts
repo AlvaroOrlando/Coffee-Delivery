@@ -12,6 +12,7 @@ export const HeaderContainer = styled.header`
 export const LogoContainer = styled.div`
     width: 84.95px;
     height: 40px;
+    cursor: pointer;
 `
 
 export const HeaderLocationContainer = styled.div`

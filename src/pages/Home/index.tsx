@@ -1,13 +1,11 @@
-import { Header } from "../../components/Header";
 import { HomeCoffeeContainer } from "../../pages/Home/components/HomeCoffeeContainer";
 import { HomeTopContainer } from "./components/HomeTopContainer";
 import {  Main, Title } from "./styles";
 
-export function Home(){
-    return (
-      <>
-        <Header />
 
+export function Home(){
+ 
+    return (
         <Main>
             <HomeTopContainer />
             
@@ -17,6 +15,5 @@ export function Home(){
 
             <HomeCoffeeContainer />
         </Main>
-      </>
     )
 }

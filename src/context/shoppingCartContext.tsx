@@ -1,18 +1,22 @@
-import {  ReactNode, createContext, useState } from 'react'
+import {  ReactNode, createContext, useState, FocusEvent } from 'react'
 
-interface ShoppinCartProviderProps {
+ interface ShoppinCartProviderProps {
     children: ReactNode
 }
 
-interface ShoppingCartContext {
+ interface ShoppingCartContext {
     getItemQuantity: (id:number) => number
     getAllItemsQuantity: () => number
     increaseCartQuantity: (id:number) => void
     decreaseCartQuantity: (id:number) => void
     removeFromCart: (id:number) => void
+    cartItems:CartItem[]
+    delivery:number
+    handleBtnValue:(e:FocusEvent<HTMLButtonElement>) => void
+    paymentBtnValue:string
+    resetCart: ()=> void
 }
-
-interface CartItem {
+ interface CartItem {
     id:number
     quantity: number
 }
@@ -22,10 +26,16 @@ export const ShoppingCartContext = createContext({
 } as ShoppingCartContext)
 
 
-export function ShoppinCartProvider({ children }:
-    ShoppinCartProviderProps){
+export function ShoppinCartProvider({ children }:ShoppinCartProviderProps){
 
         const [cartItems, setCartItems] = useState<CartItem[]>([])
+        const delivery = 3.5
+
+        const [paymentBtnValue, setPaymentBtnValue] = useState('')
+
+        function handleBtnValue(e:FocusEvent<HTMLButtonElement>){
+          setPaymentBtnValue(e.target.name);
+        }
 
         function getItemQuantity(id:number){
             return cartItems.find(item => item.id === id)?.quantity || 0        
@@ -80,6 +90,10 @@ export function ShoppinCartProvider({ children }:
             }) 
         }
 
+        function resetCart(){
+            setCartItems([])
+        }
+
 
     return <ShoppingCartContext.Provider 
       value={{
@@ -87,7 +101,12 @@ export function ShoppinCartProvider({ children }:
         increaseCartQuantity, 
         decreaseCartQuantity,
         removeFromCart,
-        getAllItemsQuantity
+        getAllItemsQuantity,
+        cartItems,
+        delivery,
+        handleBtnValue,
+        paymentBtnValue,
+        resetCart
       }}>
         { children }
     </ShoppingCartContext.Provider>

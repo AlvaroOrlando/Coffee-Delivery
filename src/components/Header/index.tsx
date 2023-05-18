@@ -12,6 +12,7 @@ import   logo from '../../assets/Logo.svg'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 
 import { useShoppingCart } from '../../hooks/useShoppingCart'
+import { Link } from "react-router-dom";
 
 
 
@@ -19,14 +20,15 @@ import { useShoppingCart } from '../../hooks/useShoppingCart'
 
 export function Header(){
 
-    const { getAllItemsQuantity } = useShoppingCart()
-
+    const { getAllItemsQuantity, cartItems } = useShoppingCart()
     return (
         // Header
         <HeaderContainer>
             {/* Logo */}
            <LogoContainer>
-              <img src={logo} alt="" />
+              <Link to="/">
+                <img src={logo} alt="" />
+              </Link>
            </LogoContainer>
 
            {/* Location/Cart */}
@@ -38,12 +40,14 @@ export function Header(){
                   <div>Porto Alegre, RS</div>
                </HeaderLocationContainer>
 
-               <CartContainer href="/checkout">
-                  <Circle>
-                    {getAllItemsQuantity()}
-                  </Circle>
-                  <ShoppingCart color="#C47F17"/>
-               </CartContainer>
+               <Link to='checkout' state={cartItems}>
+                 <CartContainer>
+                    <Circle>
+                        {getAllItemsQuantity()}
+                    </Circle>
+                        <ShoppingCart color="#C47F17"/>
+                  </CartContainer>
+                </Link>
            </HeaderMenuContainer>
 
         </HeaderContainer>

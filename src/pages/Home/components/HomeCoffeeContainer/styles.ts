@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const CoffeeContainer = styled.section`
-width: 100%;
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: center;
-row-gap:2.5rem;
-column-gap:2rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    row-gap:2.5rem;
+    column-gap:2rem;
 `
 
 export const Card = styled.div`

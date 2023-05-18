@@ -21,7 +21,6 @@ export function HomeCoffeeContainer(){
 
     const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity} = useShoppingCart()
 
-
   return (
         
     <CoffeeContainer>
